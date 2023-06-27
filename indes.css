@@ -1,0 +1,124 @@
+/* resets */
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* main styles */
+
+:root {
+
+    --primary-font-family: 'Nunito', sans-serif;
+    --text-color: #212121;
+    --main-color: #b4d1f1;
+    --second-color: #FAAB01;
+    --btn-hover-color: #E48716;
+
+}
+
+body {
+    font-family: var(--primary-font-family);
+    color: var(--text-color);
+}
+
+input {
+    display: flex;
+    padding: 8px;
+
+    font-family: inherit;
+
+    border-radius: 10px;
+    border: 1px solid ;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}
+button{
+    min-width: 60px;
+    height: 36px;
+    padding: 3px 20px;
+
+    font-family: var(--primary-font-family);
+
+    background-color: var(--second-color);
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+.main{
+    margin: 20px 100px;
+
+    background-color: var(--main-color);
+    border-radius: 10px;
+}
+
+.header {
+    padding-top: 50px;
+    margin-bottom: 50px;
+
+    font-size: 32px;
+}
+
+.container{
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 15px;
+   
+}
+
+.addition-area {
+    display: flex;
+    align-items: flex-end;
+   
+    margin-bottom: 20px;
+}
+
+.input-label{
+    width: 250px;
+    margin-right: 50px;
+}
+
+ @media screen and (min-width: 768px) {
+     .container {
+         width: 768px;
+         margin: 0 auto;
+         padding: 0px 32px;
+     }
+}
+
+
+ @media  screen and (min-width: 1200px) {
+     .container {
+         width: 1200px;
+         padding: 0px 60px;
+     }
+
+
+ }
+
+
+
