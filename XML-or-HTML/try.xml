@@ -1,0 +1,16 @@
+line 1 column 1 - Warning: missing <!DOCTYPE> declaration
+line 1 column 1 - Warning: inserting implicit <body>
+line 1 column 1 - Warning: inserting missing 'title' element
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content=
+"HTML Tidy for HTML5 for Linux version 5.6.0" />
+<title></title>
+</head>
+<body>
+<label for="${pair.id}" class="form-field"><input type="checkbox"
+name="pair" value="" id="${pair.id}" />${pair.name} =
+${pair.value}</label>
+</body>
+</html>

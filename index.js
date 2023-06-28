@@ -5,11 +5,30 @@ const pairList = document.querySelector(".pair-list");
 const sortByNameBtn = document.querySelector(".sort-by-name-btn");
 const sortByValueBtn = document.querySelector(".sort-by-val-btn");
 const delBtn = document.querySelector(".del-btn");
-const chosenItem = document.querySelectorAll(".pair-item");
+const chosenItem = document.querySelector(".form-field");
+const showXMLBtn = document.querySelector(".show-btn");
 
 
 
 let listOfValues = [];
+
+//Updating pair list function
+
+function updateList(array) {
+  const markup = array
+    .map(
+      (pair) =>
+        `<label for=${pair.id} class="form-field"> <input type="checkbox" name="pair" value="" id=${pair.id}>${pair.name} = ${pair.value}</label>`
+    )
+    .join("");
+  
+  pairList.innerHTML = markup;
+}
+
+
+
+//Function for adding a new pair
+
 
 addPairBtn.addEventListener("click", async (event) => {
   event.preventDefault();
@@ -26,60 +45,72 @@ addPairBtn.addEventListener("click", async (event) => {
   } else {
       newPair.name = cheackPair[0];
       newPair.value = cheackPair[1];
+      newPair.id = Math.ceil(Math.random() * 100);
 
       listOfValues.push(newPair);
       newPairValue.value = "";
   }
 
-    const markup = listOfValues
-      .map(
-        (pair) =>
-          `<div class="form-field">
-            <input type="checkbox"  class="pair-item" name="checkbox" value=${pair.name} id=${pair.name}>
-            <label class="pair-item" for=${pair.name}>${pair.name} = ${pair.value}</label>
-        </div>`
-      )
-      .join("");
-     pairList.innerHTML = markup;
+  updateList(listOfValues);
+ 
+  
 });
+
+//Function for sorting by name
+
 
 
 sortByNameBtn.addEventListener("click", () => {
     const sortedByName = listOfValues.sort((firstPair, secondPair) =>
       firstPair.name.localeCompare(secondPair.name)
     );
-     const markup = sortedByName
-       .map(
-         (pair) =>
-           `<div class="form-field">
-            <input type="checkbox" class="pair-item" name="checkbox" value=${pair.name} id=${pair.name}>
-            <label class="pair-item" for=${pair.name}>${pair.name} = ${pair.value}</label>
-        </div>`
-       )
-       .join("");
-     pairList.innerHTML = markup;
+    updateList(sortedByName);
+  
+
 
 })
+
+//Function for sorting by value
+
 
 sortByValueBtn.addEventListener("click", () => {
   const sortedByValue = listOfValues.sort((firstPair, secondPair) =>
     firstPair.value.localeCompare(secondPair.value)
   );
-    const markup = sortedByValue
-      .map(
-        (pair) => `<div class="form-field">
-            <input type="checkbox" class="pair-item" name="checkbox" value=${pair.name} id=${pair.name}>
-            <label class="pair-item" for=${pair.name}>${pair.name} = ${pair.value}</label>
-        </div>`
-      )
-      .join("");
-  pairList.innerHTML = markup;
+    updateList(sortedByValue);
+
 });
 
-chosenItem?.addEventListener("change", function () {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-  } else {
-    console.log("Checkbox is not checked..");
-  }
-});
+
+//Function for deleting
+
+
+delBtn.addEventListener('click', () => {
+  let checkboxes = document.querySelectorAll('input[name="pair"]:checked');
+    
+  let updatedlist = [];
+  checkboxes.forEach((checkbox) => {
+ 
+    updatedlist = listOfValues.filter((item) => item.id != checkbox.id);
+
+  });
+  updateList(updatedlist);
+  listOfValues = updatedlist;
+})
+
+
+//Function for showing XML /in a directory to files for comparing HTML and XML formats
+
+showXMLBtn.addEventListener('click', () => {
+
+  const markup = listOfValues
+    .map(
+      (pair) =>
+        `<label for="${pair.id}" class="form-field"><input type="checkbox"
+            name="pair" value="" id="${pair.id}" />${pair.name} = ${pair.value}</label>`
+    )
+    .join("");
+  pairList.innerHTML = markup;
+  return alert("Well, yes, it's an XML format.");
+})
+
