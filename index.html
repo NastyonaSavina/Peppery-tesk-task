@@ -2,7 +2,11 @@
 <html lang="en">
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Page title</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap" rel="stylesheet">
@@ -10,28 +14,45 @@
 
   </head>
   <body>
-    <section class="main">
-        <div class="container">
-            <h1 class="header">Test</h1>
+    <main>
+        
+            <div class="container">
+                <h1 class="header">Test</h1>
                 <div class="addition-area"> 
                     <label class="input-label">
                         Name/Value Pair
-                        <input type="text" name="name&value" />
+                        <input class="input-place" type="text" name="name&value" />
                     </label>
-                    <button> Add</button>
+                    <button class="add-btn"> Add</button>
                     </div>
-                    <div class="value-list"> 
-                    <select name="credit_card" size="3">
-                            <option value="Visa">Visa</option>
-                            <option value="Mastercard">Mastercard</option>
-                            <option value="American Express">American Express</option>
-                        </select>
+                    <p class="list-title">Name/Value Pair List</p>
+
+                    <div class="list-area">
+                        <div class="list-space">
+                            <div class="pair-list"></div>
+
+                        </div>
+                        <div class="action-bts">
+                            <div class="sorting-btns">
+                                <button class="sort-by-name-btn"> Sort by Name</button>
+                                <button class="sort-by-val-btn"> Sort by Value</button>
+                            </div>
+                            
+                            <button class="del-btn"> Delete</button>
+                            <button class="show-btn"> Show XML</button>
+
+                        </div>
+
                     </div>
                 </div>
-        <div>
-    </section>
+            <div>
+       
+        
+        </main>
     
 
     </div>
+    <script src="./index.js"></script>
+
   </body>
 </html>
