@@ -5,7 +5,6 @@ const pairList = document.querySelector(".pair-list");
 const sortByNameBtn = document.querySelector(".sort-by-name-btn");
 const sortByValueBtn = document.querySelector(".sort-by-val-btn");
 const delBtn = document.querySelector(".del-btn");
-const chosenItem = document.querySelector(".form-field");
 const showXMLBtn = document.querySelector(".show-btn");
 
 
