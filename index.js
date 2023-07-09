@@ -29,7 +29,7 @@ function updateList(array) {
 //Function for adding a new pair
 
 
-addPairBtn.addEventListener("click", async (event) => {
+addPairBtn.addEventListener("click",  (event) => {
   event.preventDefault();
 
   let newPair = {};
